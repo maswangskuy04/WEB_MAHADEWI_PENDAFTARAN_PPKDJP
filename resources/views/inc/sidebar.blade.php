@@ -1,61 +1,52 @@
-<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
-    <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="./index.html" class="brand-link">
-            <!--begin::Brand Image--> <img src="{{ asset('template/dist/assets/img/AdminLTELogo.png') }}"
-                alt="AdminLTE Logo" class="brand-image opacity-100 shadow"> <!--end::Brand Image-->
-            <!--begin::Brand Text--> <span class="brand-text fw-light">Pendaftaran Angkatan III</span>
-            <!--end::Brand Text--> </a>
-        <!--end::Brand Link-->
-    </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
-    <div class="sidebar-wrapper">
-        <nav class="mt-2"> <!--begin::Sidebar Menu-->
-            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                <li class="nav-item menu-open"> <a href="#" class="nav-link active"> <i
-                            class="nav-icon bi bi-speedometer"></i>
-                        <p>
-                            Dashboard
-                        </p>
+<div class="sidebar" data-background-color="dark">
+    <div class="sidebar-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+            <a href="index.html" class="logo">
+                <img src="{{ asset('template/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand" height="20" />
+            </a>
+            <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                    <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                    <i class="gg-menu-left"></i>
+                </button>
+            </div>
+            <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+            </button>
+        </div>
+        <!-- End Logo Header -->
+    </div>
+    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+                <li class="nav-item {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="{{ route('admin.dashboard') }}" class="collapsed" aria-expanded="false">
+                        <i class="fa-solid fa-house"></i>
+                        <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item"> <a href="./generate/theme.html" class="nav-link"> <i
-                            class="nav-icon bi bi-palette"></i>
-                        <p>Theme Generate</p>
-                    </a> </li>
-                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-box-seam-fill"></i>
-                        <p>
-                            Master Data
-                            <i class="nav-arrow bi bi-chevron-right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"> <a href="./widgets/small-box.html" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
-                                <p>Levels</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="./widgets/info-box.html" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
-                                <p>Jurusan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="./widgets/cards.html" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
-                                <p>Peserta Pelatihan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item"> <a href="./widgets/cards.html" class="nav-link"> <i
-                                    class="nav-icon bi bi-circle"></i>
-                                <p>Gelombang</p>
-                            </a>
-                        </li>
-                    </ul>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Master Data</h4>
                 </li>
-                <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-clipboard-fill"></i>
-                        <p>
-                            Layout Options
-                        </p>
+                <li class="nav-item {{ Request::routeIs('level.index') ? 'active' : '' }}">
+                    <a href="{{ route('level.index') }}">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Level</p>
                     </a>
                 </li>
-            </ul> <!--end::Sidebar Menu-->
-        </nav>
-    </div> <!--end::Sidebar Wrapper-->
-</aside>
+                <li class="nav-item {{ Request::routeIs('jurusan.index') ? 'active' : '' }}">
+                    <a href="{{ route('jurusan.index') }}">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Jurusan</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
